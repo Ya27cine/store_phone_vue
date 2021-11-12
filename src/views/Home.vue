@@ -1,13 +1,19 @@
 <template>
+
+  
+
   <div class="home">
+  <Navbar />
     <h2>Store Samphone</h2>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import Navbar from './../components/Navbar.vue'
 
 export default {
-
+  components: { Navbar },
 }
+
+
 </script>
