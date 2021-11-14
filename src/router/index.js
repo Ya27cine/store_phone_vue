@@ -14,7 +14,8 @@ const routes = [
   {
     path: '/smartphone/:id/show',
     name: 'Show',
-    component: Show
+    component: Show,
+    props: true
   },
   {
     path: '/about',
