@@ -1,10 +1,8 @@
 <template>
-  <div class="home">
-    <h2 class="my-2">Store Samphone</h2>
-<hr>
-</div>
+
   <div class="container">
   <div class="row" v-if="smartphones" >
+        <h2 class="my-2">Store Samphone</h2>
           <div class="col-md-3 my-2" v-for="s in smartphones"> 
               <Smartphone  :data="s" />
             </div>
