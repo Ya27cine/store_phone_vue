@@ -4,6 +4,8 @@
         <div class="card-body">
             <h5 class="card-title">ROM{{ data.rom}}, RAM {{ data.ram}}</h5>
             <p class="card-text">Some quick example text to build on the card title and make </p>
+            <h6> color : {{ data.color}}</h6>
+            <h4> Prix : {{ data.price}}&euro;</h4>
             <router-link :to="{name: 'Show', params:{id: data.id }}" class="btn btn-primary">Detail</router-link>
         </div>
     </div>
