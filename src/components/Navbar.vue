@@ -20,7 +20,7 @@
         
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" :to="{ name: 'Home' }">Devis</router-link>
+          <router-link class="nav-link" :to="{ name: 'Repair' }">Devis</router-link>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accessoires</a>
