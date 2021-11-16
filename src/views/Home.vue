@@ -1,18 +1,36 @@
 <template>
 
-  <div class="container">
-  <div class="row" v-if="smartphones" >
-        <h2 class="my-2">Store Samphone</h2>
-          <div class="col-md-3 my-2" v-for="s in smartphones"> 
-              <Smartphone  :data="s" />
-            </div>
+<div class="contaner">
+      <div class="row">
+
+        <div class="col-md-3 my-4" >
+        <div class="container" >
+          <ul class="list-group" id="menu-left">
+              <li class="list-group-item active" aria-current="true">ALL</li>
+            <li class="list-group-item"> <router-link :to="{name: 'Repair'}">Samsung</router-link> </li>
+            <li class="list-group-item"> <router-link :to="{name: 'Repair'}">Apple</router-link> </li>
+            <li class="list-group-item"> <router-link :to="{name: 'Repair'}">Huawei</router-link> </li>
+            <li class="list-group-item"> <router-link :to="{name: 'Repair'}">Redmi</router-link> </li>
+            </ul>
+        </div>
+          
+        </div>
+        <div class="col-md-9 my-4">
+            <div class="row" v-if="smartphones" >
+                 <div class="col-md-3  mx-3 mb-3" v-for="s in smartphones"> 
+                     <Smartphone  :data="s" />
+                  </div>
+             </div>
+              <div v-else>
+                  <h3> Loading ...</h3>
+              </div>
+        </div>
       </div>
-      <div v-else>
-        <h3> Loading ...</h3>
-      </div>
-    
   </div>
-   
+
+
+     
+     
 
  
 </template>
@@ -37,7 +55,7 @@ export default {
        axios.get("smartphones").then((rep) => {
 
               this.smartphones = rep.data['hydra:member'];
-              console.log(rep.data);
+              //console.log(rep.data);
           })
     },
   }

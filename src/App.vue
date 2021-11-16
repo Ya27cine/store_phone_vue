@@ -39,4 +39,13 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+
+#menu-left{/*
+  position: fixed;
+  height: 100%;
+  width: 20%;*/
+}
+
+
 </style>
