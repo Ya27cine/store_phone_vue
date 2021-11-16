@@ -6,7 +6,7 @@
         <div class="col-md-3 my-4" >
         <div class="container" >
           <ul class="list-group" id="menu-left">
-              <li class="list-group-item active" aria-current="true">  <a @click="filtre_category('All')">All</a> </li>
+            <li class="list-group-item active" aria-current="true">  <a @click="filtre_category('All')">All</a> </li>
             <li class="list-group-item">  <a @click="filtre_category('Samsung')">Samsung</a> </li>
             <li class="list-group-item"> <a @click="filtre_category('iPhone')">iPhone</a> </li>
             <li class="list-group-item"> <a @click="filtre_category('Redmi')">Redmi</a> </li>
@@ -21,10 +21,11 @@
                      <Smartphone  :data="s" />
                   </div>
              </div>
-            
+                         
               <div v-else>
                   <h3> Loading ...</h3>
               </div>
+
         </div>
       </div>
   </div>
@@ -63,11 +64,11 @@ export default {
           if(marque == "All")
             this.smartphonesView = this.smartphones;
           else
-            this.smartphonesView =  Object.values(this.smartphones).filter( (el ) =>   el.Marque == marque)
+            this.smartphonesView =  
+                  Object.values(this.smartphones).filter( (el ) =>   el.Marque == marque)
 
-          console.log(marque)
-                    console.log(  this.smartphonesView )
-
+          //console.log(marque)
+          //console.log(  this.smartphonesView )
       }
     },
   }

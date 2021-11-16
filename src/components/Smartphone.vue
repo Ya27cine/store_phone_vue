@@ -6,14 +6,23 @@
             <p class="card-text">Some quick example text to build  </p>
             <h6> Quantity : <strong>{{ data.stockSmartphones.length }}</strong> </h6>
 
-             <h6 v-if="prices"> Prix : 
-                                    <strong> {{ prices.max }} &euro;
-                                         <span v-if="prices.min">   -   {{ prices.min }}&euro;   </span>    
-                                    </strong>   
-             </h6>
+             <div v-if="data.stockSmartphones.length">
+                    <h6> Prix : 
+                            <strong> {{ prices.max }} &euro;
+                                    <span v-if="prices.min">   -   {{ prices.min }}&euro;   </span>    
+                            </strong>                
+                    </h6>
 
+                    <router-link :to="{name: 'Show', params:{id: data.id }}" class="btn btn-primary"   disabled>
+                        Detail
+                    </router-link>  
+             </div>
+             <div v-else>
+                 <button type="button" class="btn btn-secondary btn-lg mb-3" disabled>Detail</button>
+             </div>
 
-            <router-link :to="{name: 'Show', params:{id: data.id }}" class="btn btn-primary">Detail</router-link>
+               
+          
 
         </div>
     </div>
