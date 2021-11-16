@@ -6,32 +6,28 @@
         <div class="col-md-3 my-4" >
         <div class="container" >
           <ul class="list-group" id="menu-left">
-              <li class="list-group-item active" aria-current="true">ALL</li>
-            <li class="list-group-item"> <router-link :to="{name: 'Repair'}">Samsung</router-link> </li>
-            <li class="list-group-item"> <router-link :to="{name: 'Repair'}">Apple</router-link> </li>
-            <li class="list-group-item"> <router-link :to="{name: 'Repair'}">Huawei</router-link> </li>
-            <li class="list-group-item"> <router-link :to="{name: 'Repair'}">Redmi</router-link> </li>
+              <li class="list-group-item active" aria-current="true">  <a @click="filtre_category('All')">All</a> </li>
+            <li class="list-group-item">  <a @click="filtre_category('Samsung')">Samsung</a> </li>
+            <li class="list-group-item"> <a @click="filtre_category('iPhone')">iPhone</a> </li>
+            <li class="list-group-item"> <a @click="filtre_category('Redmi')">Redmi</a> </li>
+            <li class="list-group-item"> <a @click="filtre_category('Huawei')">Huawei</a> </li>
             </ul>
         </div>
           
         </div>
         <div class="col-md-9 my-4">
-            <div class="row" v-if="smartphones" >
-                 <div class="col-md-3  mx-3 mb-3" v-for="s in smartphones"> 
+            <div class="row" v-if="smartphonesView" >
+                 <div class="col-md-3  mx-3 mb-3" v-for="s in smartphonesView"> 
                      <Smartphone  :data="s" />
                   </div>
              </div>
+            
               <div v-else>
                   <h3> Loading ...</h3>
               </div>
         </div>
       </div>
   </div>
-
-
-     
-     
-
  
 </template>
 
@@ -39,15 +35,17 @@
 
 import Navbar from  './../components/Navbar';
 import Smartphone from  './../components/Smartphone';
+import Paginate from 'vuejs-paginate';
 
 
 import axios from 'axios'
 
 export default {
-  components: { Smartphone, Navbar},
+  components: { Smartphone, Navbar, Paginate},
     data() {
       return {
-        smartphones: null
+        smartphones: null,
+        smartphonesView: null
      }
     },
   
@@ -56,7 +54,21 @@ export default {
 
               this.smartphones = rep.data['hydra:member'];
               //console.log(rep.data);
+              this.smartphonesView = this.smartphones;
           })
+    },
+
+    methods: {
+      filtre_category(marque){
+          if(marque == "All")
+            this.smartphonesView = this.smartphones;
+          else
+            this.smartphonesView =  Object.values(this.smartphones).filter( (el ) =>   el.Marque == marque)
+
+          console.log(marque)
+                    console.log(  this.smartphonesView )
+
+      }
     },
   }
 
