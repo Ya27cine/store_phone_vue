@@ -51,10 +51,11 @@ export default {
     },
   
     created() {
+     
        axios.get("smartphones").then((rep) => {
 
-              this.smartphones = rep.data['hydra:member'];
-              //console.log(rep.data);
+              this.smartphones = rep.data;
+             // console.log(rep.data);
               this.smartphonesView = this.smartphones;
           })
     },

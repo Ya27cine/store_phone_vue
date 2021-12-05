@@ -1,6 +1,6 @@
 <template >
 <div class="card" style="width: 18rem;">
-        <img src="https://www.chooseyourmobile.com/wp-content/uploads/2020/10/Vivo-X51-5G.jpg" class="card-img-top" alt="...">
+        <img :src="getDataImage(data.id)" class="card-img-top" alt="...">
         <div  class="card-body">
             <h5 class="card-title">{{ data.Marque}} {{ data.Name}}</h5>
             <p class="card-text">Some quick example text to build  </p>
@@ -36,6 +36,7 @@ export default {
 
     data() {
         return {
+            path: "https://127.0.0.1:8000/" ,
             prices: []
         }
     },
@@ -61,6 +62,9 @@ export default {
                 let min  = Math.min( ...this.prices );
                 if( max == min ) return { max } 
                 else  return { max, min }
+            },
+            getDataImage(id){
+                    return "https://127.0.0.1:8000/api/images/data/"+id;
             }
     },
 
